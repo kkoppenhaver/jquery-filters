@@ -8,6 +8,11 @@
     	filterInfo = $.extend({
 
     	}, options);
+
+    	// Grab the items container
+    	var $itemsContainer = $(filterInfo.container);
+
+    	var originalHTML;
       
       // Loop through each filter in the container
       // Make sure we return the each so that methods can be chained
@@ -20,7 +25,10 @@
       		// Grab the current filter from the clicked item
       		var cur_filter = $filter.data('filter');
 
-      		var $itemsContainer = $(filterInfo.container);
+      		if(!originalHTML){
+      			// Store the original HTML in case the filters are reset
+    				originalHTML = $itemsContainer.html();
+      		}
 
       		// Add the overlay
       		$itemsContainer.append('<div class="overlay"></div>')
@@ -53,6 +61,9 @@
       		else {
       			// Get rid of any existing active classes
       			$filters_container.children().removeClass('active');
+
+      			// Reset the container to the original HTML
+      			$itemsContainer.html(originalHTML);
       		}
 
       		// Remove the overlay after the filter is done firing
