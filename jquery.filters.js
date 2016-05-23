@@ -1,8 +1,20 @@
 (function($) {
 
     $.fn.filters = function() {
+    	var $filters_container = $(this);
+      
+      return this.children().each(function(){
+      	
+      	var $filter = $(this);
 
-        // Future home of "Hello, World!"
+      	$filter.click(function(){
+      		$filters_container.children().removeClass('active');
+
+      		$filter.addClass('active');
+
+      	});
+
+      });
 
     }
 
