@@ -56,7 +56,7 @@
       			$itemsContainer.html('');
 
       			// Execute the correct filter
-      			filterInfo[cur_filter]($filter); 
+      			filterInfo.filters[cur_filter]($filter); 
       		}
       		// Else the filter was already active, we don't need to run the action again
       		else {
