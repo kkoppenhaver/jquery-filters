@@ -1,6 +1,6 @@
 (function($) {
 
-    $.fn.filters = function(options) {
+    $.fn.filters = function(options, ) {
     	// Grab whatever container the plugin was init'ed on
     	var $filters_container = $(this);
 
@@ -51,9 +51,6 @@
 
 						// Add an active class to the filter that was clicked
       			$filter.addClass('active');
-
-      			// Remove all items from the container
-      			$itemsContainer.html('');
 
       			// Execute the correct filter
       			filterInfo.filters[cur_filter]($filter); 
