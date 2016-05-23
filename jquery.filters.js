@@ -12,6 +12,7 @@
     	// Grab the items container
     	var $itemsContainer = $(filterInfo.container);
 
+    	// Init the var, we'll need it later when we store the original HTML
     	var originalHTML;
       
       // Loop through each filter in the container
