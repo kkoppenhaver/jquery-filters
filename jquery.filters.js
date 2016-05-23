@@ -5,7 +5,7 @@
     	var $filters_container = $(this);
 
     	// If the filters array ever needs default options, here's where they'll go
-    	filters = $.extend({
+    	filterInfo = $.extend({
 
     	}, options);
       
@@ -17,7 +17,21 @@
 
       	// Adding a click event on each filter
       	$filter.click(function(){
+      		// Grab the current filter from the clicked item
       		var cur_filter = $filter.data('filter');
+
+      		// Add the overlay
+      		$(filterInfo.container).append('<div class="overlay"></div>')
+
+      		// Add CSS props to the overlay
+      		$(filterInfo.container).children('.overlay')
+      			.css('background-color', 'white')
+      			.css('opacity', '.7')
+      			.css('position', 'absolute')
+      			.css('top', 0)
+      			.css('left', 0)
+      			.css('width', '100%')
+      			.css('height', '100%');
 
       		// If the filter isn't active, activate it and perform the action
       		if(!$filter.hasClass('active')){
@@ -28,13 +42,16 @@
       			$filter.addClass('active');
 
       			//Execute the correct filter
-      			filters[cur_filter]()   	
+      			filterInfo[cur_filter]() 
       		}
       		// Else the filter was already active, we don't need to run the action again
       		else {
       			// Get rid of any existing active classes
       			$filters_container.children().removeClass('active');
       		}
+
+      		// Remove the overlay after the filter is done firing
+      		$(filterInfo.container).children('.overlay').remove()  	
 
       	});
 
