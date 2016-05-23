@@ -12,11 +12,17 @@
 
       	// Adding a click event on each filter
       	$filter.click(function(){
-      		// Get rid of any existing active classes
-      		$filters_container.children().removeClass('active');
+      		if(!$filter.hasClass('active')){
+						// Get rid of any existing active classes
+      			$filters_container.children().removeClass('active');
 
-      		// Add an active class to the filter that was clicked
-      		$filter.addClass('active');
+						// Add an active class to the filter that was clicked
+      			$filter.addClass('active');
+      		}
+      		else {
+      			// Get rid of any existing active classes
+      			$filters_container.children().removeClass('active');
+      		}      		
       	});
 
       });
