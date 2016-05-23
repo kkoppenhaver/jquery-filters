@@ -24,14 +24,15 @@
 
 						// Add an active class to the filter that was clicked
       			$filter.addClass('active');
+
+      			//Execute the correct filter
+      			filters[cur_filter]()   	
       		}
       		else {
       			// Get rid of any existing active classes
       			$filters_container.children().removeClass('active');
       		}
 
-      		//Execute the correct filter
-      		filters[cur_filter]()   		
       	});
 
       });
