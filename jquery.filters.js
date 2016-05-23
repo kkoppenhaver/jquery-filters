@@ -1,6 +1,6 @@
 (function($) {
 
-    $.fn.filters = function(options, ) {
+    $.fn.filters = function(options) {
     	// Grab whatever container the plugin was init'ed on
     	var $filters_container = $(this);
 
