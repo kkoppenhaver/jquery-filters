@@ -1,8 +1,12 @@
 (function($) {
 
-    $.fn.filters = function() {
+    $.fn.filters = function(options) {
     	// Grab whatever container the plugin was init'ed on
     	var $filters_container = $(this);
+
+    	filters = $.extend({
+
+    	}, options);
       
       // Loop through each filter in the container
       // Make sure we return the each so that methods can be chained
@@ -12,6 +16,8 @@
 
       	// Adding a click event on each filter
       	$filter.click(function(){
+      		var cur_filter = $filter.data('filter');
+
       		if(!$filter.hasClass('active')){
 						// Get rid of any existing active classes
       			$filters_container.children().removeClass('active');
@@ -22,7 +28,10 @@
       		else {
       			// Get rid of any existing active classes
       			$filters_container.children().removeClass('active');
-      		}      		
+      		}
+
+      		//Execute the correct filter
+      		filters[cur_filter]()   		
       	});
 
       });
