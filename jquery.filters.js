@@ -20,11 +20,13 @@
       		// Grab the current filter from the clicked item
       		var cur_filter = $filter.data('filter');
 
+      		var $itemsContainer = $(filterInfo.container);
+
       		// Add the overlay
-      		$(filterInfo.container).append('<div class="overlay"></div>')
+      		$itemsContainer.append('<div class="overlay"></div>')
 
       		// Add CSS props to the overlay
-      		$(filterInfo.container).children('.overlay')
+      		$itemsContainer.children('.overlay')
       			.css('background-color', 'white')
       			.css('opacity', '.7')
       			.css('position', 'absolute')
@@ -41,6 +43,9 @@
 						// Add an active class to the filter that was clicked
       			$filter.addClass('active');
 
+      			// Remove all items from the container
+      			$itemsContainer.html('');
+
       			//Execute the correct filter
       			filterInfo[cur_filter]() 
       		}
@@ -51,7 +56,7 @@
       		}
 
       		// Remove the overlay after the filter is done firing
-      		$(filterInfo.container).children('.overlay').remove()  	
+      		$itemsContainer.children('.overlay').remove()  	
 
       	});
 
